@@ -16,6 +16,7 @@
                     {{csrf_field()}}
                     <input type="text" name="q" class="form-control" placeholder="พิมพ์รหัสหรือชื่อเพื่อค้นหา" value="{{Input::get('q')}}">
                     <button type="submit" class="btn btn-primary">ค้นหา</button>
+                    <a href="{{URL::to('product/edit')}}" class="btn btn-success pull-right">เพิ่มสินค้า</a>
                 </form>
             </div>
         
@@ -33,8 +34,11 @@
             </thead>
             <tbody>
                 @foreach($products as $p)
+                <?php
+                    $filename = asset($p->image_url);
+                ?>
                 <tr>
-                    <td><img src="{{$p->image_url}}" width="50px"></td>
+                    <td><img src="{{$filename}}" width="50px"></td>
                     <td>{{$p->code}}</td>
                     <td>{{$p->name}}</td>
                     <td>{{$p->category->name}}</td>
@@ -42,7 +46,7 @@
                     <td>{{ number_format($p->price , 2)}}</td>
                     <td>
                     <a href="{{URL::to('product/edit/'.$p->id)}}" class="btn btn-info"><i class="fa fa-edit"></i>แก้ไข</a>
-                        <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i>ลบ</a>
+                    <a href="#" class="btn btn-danger btn-delete" id-delete="{{$p->id}}"><i class="fa fa-trash"></i>ลบ</a>
                     </td>
                 </tr>
                 @endforeach
@@ -62,5 +66,15 @@
     </div>
     {{$products->links()}}
     </div>
-
+    <script>
+        //jquery
+        $('.btn-delete').on('click',function()
+        {
+            if(confirm("คุณต้องการลบข้อมูลสินค้าหรือไม่?"))
+            {
+                var url = "{{URL::to('product/remove')}}" + '/' + $(this).attr('id-delete');
+                window.location.href = url;
+            }
+        });
+    </script>
 @endsection

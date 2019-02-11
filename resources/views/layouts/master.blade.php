@@ -1,15 +1,16 @@
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewpoint" content="width-device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>@yield("title","BikeShop | จำหน่ายอะไหร่จักรยานออนไลน์")</title>
-    <link rel = "stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel = "stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
-    <link rel = "stylesheet" href="{{asset('vendor/toastr/toastr.min.css')}}">
-    <link rel = "stylesheet" href="{{asset('css/style.css')}}">
-    <script src= "{{asset('vendor/toastr/toastr.min.js')}}"></script>
-    <script src = "{{asset('js/jquery-3.3.1.min.js')}}"></script>
+        <title>@yield('title','TEST')</title>
+        
+        <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/kmutnb.css')}}">
+        <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('vendor/toastr/toastr.min.css')}}">
+        <script src="{{asset('vendor/toastr/toastr.min.js')}}"></script>
     </head>
     <body>
         <nav class="navbar-default navbar-static-top">
